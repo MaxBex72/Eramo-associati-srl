@@ -1,0 +1,4 @@
+# I file per Windows restano con i ritorni a capo di Windows (CRLF):
+# i file .bat con ritorni a capo diversi possono non funzionare.
+*.bat -text
+*.txt -text

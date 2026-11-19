@@ -1,0 +1,20 @@
+# ==================================================================
+#  IMPOSTAZIONI - messaggio WhatsApp giornaliero
+#
+#  Scrivi i valori dopo il segno "=" e poi salva il file (Ctrl+S).
+#  Le righe che iniziano con # sono solo spiegazioni.
+# ==================================================================
+
+# Nome del gruppo WhatsApp, scritto come appare in WhatsApp.
+# Maiuscole e minuscole non contano.
+# Esempio:  GRUPPO=Ufficio Team
+GRUPPO=
+
+# Orario di invio, ogni giorno, nel formato ore:minuti.
+# Esempio:  ORARIO=08:00   oppure   ORARIO=18:30
+ORARIO=
+
+# Se all'orario stabilito il PC era spento o WhatsApp non era collegato,
+# il messaggio parte appena possibile, ma solo entro questi minuti di
+# ritardo. Oltre, per quel giorno non viene inviato.
+RITARDO_MASSIMO_MINUTI=30

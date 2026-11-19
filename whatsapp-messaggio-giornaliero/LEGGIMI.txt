@@ -1,0 +1,134 @@
+﻿MESSAGGIO WHATSAPP GIORNALIERO
+==============================
+
+Questo programma invia ogni giorno, all'orario che scegli, un messaggio a un
+gruppo WhatsApp. Gira sul PC Windows, che deve restare acceso e collegato a
+internet. Il PC viene collegato al tuo WhatsApp come "dispositivo collegato",
+proprio come WhatsApp Web.
+
+
+COSA C'È NELLA CARTELLA
+-----------------------
+  impostazioni.txt       nome del gruppo e orario di invio
+  messaggio.txt          il testo da inviare
+  prova.bat              prova: manda il messaggio solo a te, non al gruppo
+  avvia.bat              avvia il programma
+  avvio-automatico.bat   fa partire il programma da solo all'accensione del PC
+  aggiorna.bat           aggiorna i componenti se un giorno smette di funzionare
+  registro.txt           (si crea da solo) l'elenco di quello che ha fatto
+
+
+1. INSTALLA NODE.JS (una volta sola)
+------------------------------------
+  - Vai su https://nodejs.org e scarica la versione "LTS".
+  - Apri il file scaricato e installalo lasciando tutte le opzioni come
+    sono (Avanti, Avanti, ... Fine).
+
+
+2. METTI LA CARTELLA AL SUO POSTO
+---------------------------------
+  - Se hai scaricato un file .zip: prima tasto destro sul file .zip >
+    Proprietà > in basso spunta "Annulla blocco" (se c'è) > OK.
+    Poi tasto destro > Estrai tutto.
+  - Sposta la cartella "whatsapp-messaggio-giornaliero" in un posto fisso,
+    per esempio in Documenti. Non spostarla più dopo il passo 6.
+
+
+3. SCRIVI GRUPPO, ORARIO E MESSAGGIO
+------------------------------------
+  - Apri impostazioni.txt (doppio clic) e completa queste due righe:
+        GRUPPO=nome del gruppo, come appare in WhatsApp
+        ORARIO=08:00
+    Salva (Ctrl+S) e chiudi.
+  - Apri messaggio.txt e scrivi il testo da inviare. Può essere su più
+    righe e avere emoji. Salva (Ctrl+S) e chiudi.
+
+
+4. FAI LA PROVA
+---------------
+  - Doppio clic su prova.bat.
+    Se Windows mostra un avviso di sicurezza, scegli "Esegui" (oppure
+    "Ulteriori informazioni" e poi "Esegui comunque").
+  - La prima volta installa i componenti necessari: può richiedere
+    qualche minuto.
+  - Poi compare un codice QR, nella finestra nera e in una pagina del
+    browser. Sull'iPhone apri WhatsApp > Impostazioni > Dispositivi
+    collegati > Collega un dispositivo, e inquadra il codice.
+  - Il programma cerca il gruppo e manda il messaggio SOLO A TE, nella
+    chat con te stesso ("Tu"). Il gruppo non riceve niente.
+  - Se il gruppo non viene trovato, la finestra mostra l'elenco dei tuoi
+    gruppi: copia il nome giusto in impostazioni.txt e rifai la prova.
+
+
+5. AVVIA IL PROGRAMMA
+---------------------
+  - Doppio clic su avvia.bat. Il codice QR non serve più: il collegamento
+    è già fatto.
+  - La finestra nera ti dice quando partirà il prossimo messaggio.
+  - Lascia aperta la finestra (puoi ridurla a icona). Se la chiudi, il
+    programma si ferma.
+  - Attenzione: se avvii il programma quando l'orario di oggi è passato
+    da meno di 30 minuti, il messaggio di oggi parte subito.
+
+
+6. FALLO PARTIRE DA SOLO ALL'ACCENSIONE DEL PC (consigliato)
+------------------------------------------------------------
+  - Doppio clic su avvio-automatico.bat (una volta sola).
+    Da quel momento il programma parte da solo, ridotto a icona, ogni
+    volta che accedi a Windows.
+  - Per toglierlo: premi Windows+R, scrivi shell:startup, premi Invio e
+    cancella "WhatsApp messaggio giornaliero".
+
+
+7. NON FAR ADDORMENTARE IL PC
+-----------------------------
+  - Impostazioni di Windows > Sistema > Alimentazione (oppure
+    "Alimentazione e sospensione"): imposta la sospensione su "Mai"
+    quando il PC è collegato alla corrente.
+  - Se il PC si riavvia (per esempio per gli aggiornamenti di Windows),
+    il programma riparte solo dopo che hai fatto l'accesso a Windows.
+
+
+DOMANDE FREQUENTI
+-----------------
+  - Posso cambiare testo o orario?
+    Sì: modifica messaggio.txt o impostazioni.txt e salva. Il programma
+    rilegge i file da solo, non serve riavviarlo.
+
+  - L'iPhone deve restare acceso?
+    No, il PC invia anche con il telefono spento. Però usa WhatsApp sul
+    telefono almeno ogni tanto: se il telefono resta inattivo per circa
+    due settimane, WhatsApp scollega i dispositivi collegati.
+
+  - Il PC era spento all'orario stabilito: cosa succede?
+    Se il programma riparte entro 30 minuti dall'orario, invia il
+    messaggio appena può. Oltre, per quel giorno salta. Puoi cambiare
+    i 30 minuti in impostazioni.txt (RITARDO_MASSIMO_MINUTI).
+
+  - Rischia di mandarlo due volte nello stesso giorno?
+    No: il programma si segna la data dell'ultimo invio (nel file
+    ultimo-invio.txt) e invia al massimo un messaggio al giorno.
+
+  - Come controllo che ha funzionato?
+    Guarda il gruppo su WhatsApp, oppure apri registro.txt.
+
+  - Un giorno ha smesso di funzionare.
+    WhatsApp ogni tanto cambia qualcosa e il componente usato dal
+    programma va aggiornato. Chiudi la finestra del programma, fai doppio
+    clic su aggiorna.bat e poi su avvia.bat.
+
+  - Mi chiede di nuovo il codice QR.
+    Succede se hai scollegato il PC da WhatsApp sull'iPhone, o se il
+    telefono è rimasto inattivo a lungo. Inquadra di nuovo il codice.
+
+
+ATTENZIONE
+----------
+  - Il programma usa WhatsApp Web tramite uno strumento non ufficiale
+    (whatsapp-web.js). Con un messaggio al giorno il rischio è basso, ma
+    in teoria WhatsApp può limitare o bloccare il numero.
+  - La cartella "sessione-whatsapp" contiene l'accesso al tuo WhatsApp:
+    non copiarla e non darla a nessuno.
+  - Per scollegare del tutto il PC: sull'iPhone apri WhatsApp >
+    Impostazioni > Dispositivi collegati, tocca il dispositivo e scegli
+    "Esci".

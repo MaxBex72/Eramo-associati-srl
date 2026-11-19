@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+sessione-whatsapp/
+.wwebjs_cache/
+codice-qr.html
+registro.txt
+ultimo-invio.txt
